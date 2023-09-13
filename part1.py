@@ -46,6 +46,25 @@ def error(y,y_pred):
     for i in range(len(y)):
         res+=(y_pred[i]-y[i])**2
     return res/len(y)
+# comment or delete before submitting
+def gradientDescentAlpha(x,y,iterations, learning_rate,threshold = 0.001):
+    y = y.to_numpy(dtype="float32")
+    w = [0]*len(x[0])
+    b = 0 
+    for _ in range(iterations):
+        y_pred = predict(x,w,b)
+        err = error(y,y_pred)
+        if np.all(np.abs(learning_rate*djdw(x,y,y_pred)) <= threshold):
+            break
+        if np.all(np.abs(learning_rate*djdb(y,y_pred)) <= threshold):
+            break
+        w = w - learning_rate*djdw(x,y,y_pred)
+        b = b - learning_rate*djdb(y,y_pred)
+    plt.scatter(learning_rate,b,color="blue")
+for i in np.arange(0.01,0.5,0.01):
+    gradientDescentAlpha(X_train,Y_train,10000,i,0.001)
+plt.show()
+    
 
 def gradientDescent(x,y,iterations, learning_rate,threshold = 0.001):
     y = y.to_numpy(dtype="float32")
@@ -62,7 +81,8 @@ def gradientDescent(x,y,iterations, learning_rate,threshold = 0.001):
         w = w - learning_rate*djdw(x,y,y_pred)
         b = b - learning_rate*djdb(y,y_pred)
     return w,b
-    # print(mean_squared_error(Y_test,y_pred)) 
-w,b = gradientDescent(X_train,Y_train,10000,0.1)
-y_pred = predict(X_test,w,b)
-print(mean_squared_error(Y_test,y_pred))
+    
+# Uncomment before submitting
+# w,b = gradientDescent(X_train,Y_train,10000,0.1)
+# y_pred = predict(X_test,w,b)
+# print(mean_squared_error(Y_test,y_pred))
