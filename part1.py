@@ -1,12 +1,12 @@
-
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, explained_variance_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
 import matplotlib.pyplot as plt
+
 
 #Read the data set
 data = pd.read_csv("https://github.com/anthea97/GradientDescent/raw/main/winequality-red.csv",delimiter=";")
@@ -26,6 +26,7 @@ plt.show()
 """From the correlation matrix, we can observe that the variables residual sugar, free sulphur dioxide and pH are weakly correlated with quality."""
 
 # Drop output variable and weakly correlated predictors
+y = data['quality']
 X = data.drop(['quality',"free sulfur dioxide",'pH','residual sugar'],axis = 1)
 print(X)
 
@@ -100,7 +101,8 @@ print(w)
 print(b)
 
 y_pred = gd.predict(X_test,w,b)
-print(mean_squared_error(Y_test,y_pred))
-
-
+print("MSE:", mean_squared_error(Y_test,y_pred))
+print("MAE:", mean_absolute_error(Y_test, y_pred))
+print("EAV:", explained_variance_score(Y_test, y_pred))
+print("R^2:", r2_score(Y_test,y_pred))
 
