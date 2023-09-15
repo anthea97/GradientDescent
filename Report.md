@@ -11,6 +11,11 @@ data = pd.read_csv("https://github.com/anthea97/GradientDescent/raw/main/winequa
 ```
 
 * Null and redundant values were removed.
+* Histograms were plotted for all the variables
+![[Pasted image 20230915152816.png]]
+* Plot of quality vs predictors:
+  ![[Pasted image 20230915154059.png]]
+  
 * Correlation matrix was analyzed and variables with weak correlation - residual sugar, free sulphur dioxide and pH -  to the output variable (quality) were excluded.
 
 ```python
