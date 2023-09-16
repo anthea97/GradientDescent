@@ -76,6 +76,7 @@ We observe that the MSE stabilizes at learning rate = 0.1. This is why we chose 
 * MAE: 0.48552026122069414
 * EAV: 0.3797965377406818
 * R^2: 0.36119192424387503
+
 ![ActualVsPredicted_CGD](https://github.com/anthea97/GradientDescent/blob/main/AVP_CGD.png?raw=true)
 
 ## 2. Linear Regression Using ML Library
