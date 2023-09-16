@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, explained_variance_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -19,9 +18,9 @@ data.drop_duplicates()
 
 # Observe the correlation matrix
 correlation_matrix = data.corr()
-sns.set(rc = {'figure.figsize':(15,10)})
-sns.heatmap(correlation_matrix, annot=True,square=True)
-plt.show()
+
+fig = plt.subplots(figsize=(10,8))
+ax = sns.heatmap(data.corr(), annot=True, linewidths=2)
 
 """From the correlation matrix, we can observe that the variables residual sugar, free sulphur dioxide and pH are weakly correlated with quality."""
 
@@ -98,11 +97,25 @@ class customGD:
 gd = customGD(0.001)
 
 w,b = gd.gradientDescent(X_train,Y_train,50,0.1)
-print(w)
-print(b)
+print("weights = ",w)
+print("bias = ",b)
 
 y_pred = gd.predict(X_test,w,b)
 print("MSE:", mean_squared_error(Y_test,y_pred))
 print("MAE:", mean_absolute_error(Y_test, y_pred))
 print("EAV:", explained_variance_score(Y_test, y_pred))
 print("R^2:", r2_score(Y_test,y_pred))
+
+# preparing for plotting the graphs
+axis = [i for i in range(len(y_pred))]
+ny_pred = [round(i) for i in y_pred]
+
+# Plotting the actual results vs the predicted results
+plt.figure()
+plt.title("Actual value vs Predicted value (Custom Gradient Descent)")
+plt.scatter(axis,Y_test,color="red", label="Actual value")
+plt.scatter(axis,ny_pred,color="blue",label = "Predicted value")
+plt.xlabel("Data-points")
+plt.ylabel("Quality of wine")
+plt.legend()
+plt.show()
