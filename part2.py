@@ -17,6 +17,7 @@ reg = SGDRegressor().fit(X_train,Y_train)
 y_pred = reg.predict(X_test)
 
 print(reg.coef_)
+print(reg.intercept_)
 print(mean_squared_error(Y_test,y_pred))
 print("MSE:", mean_squared_error(Y_test,y_pred))
 print("MAE:", mean_absolute_error(Y_test, y_pred))
