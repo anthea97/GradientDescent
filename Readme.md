@@ -12,7 +12,7 @@ data = pd.read_csv("https://github.com/anthea97/GradientDescent/raw/main/winequa
 
 * Null and redundant values were removed.
 * Histograms were plotted for all the variables
-![Histogram of variables]()
+![Histogram of variables](https://github.com/anthea97/GradientDescent/blob/main/histogramsOfData.png?raw=true)
   
 * Correlation matrix was analyzed and variables with weak correlation - residual sugar, free sulphur dioxide and pH -  to the output variable (quality) were excluded.
 
@@ -92,4 +92,49 @@ SGDRegressor has been used as the linear model prediction of the wine quality da
 
 ## 3. Conclusion
 
-Since the values for the weights and bias are almost the same, and the error is permissible that is in 0.40, A custom gradient descent model has been developed in this assignment.
+In this project, the team embarked on a journey to implement Linear Regression using the Gradient Descent optimization technique, leveraging the Wine Quality dataset from the UCI Machine Learning Repository. Their objective was to predict wine quality based on various input variables, and the results provided valuable insights into the model's performance.
+
+### Custom Gradient Descent vs. Library Implementation (SGDRegressor)
+
+The team conducted two major experiments: one involving a custom implementation of Gradient Descent and another using a widely-used library, specifically the `SGDRegressor`. Both approaches aimed to achieve the same goal: predicting wine quality.
+
+**Custom Gradient Descent**:
+- After extensive iterations and fine-tuning, the custom Gradient Descent model demonstrated a commendable performance.
+- The model's weight coefficients and bias were nearly identical to those obtained from the library implementation.
+- Mean Square Error (MSE) converged to a satisfactory value of approximately 0.4145.
+- Mean Absolute Error (MAE) and Explained Variance Score (EAV) also reached respectable levels.
+- The R-squared (R²) value, indicating the proportion of variance in the dependent variable (wine quality) that the model explained, was approximately 0.3612.
+
+**SGDRegressor**:
+- The library implementation using `SGDRegressor` provided comparable results in terms of weight coefficients and bias.
+- It achieved a similar MSE of around 0.4062, implying a close approximation to the custom Gradient Descent model.
+- MAE, EAV, and R² showed consistent performance with satisfactory values.
+
+<!-- ### Decision and Implications
+
+The team's choice to opt for the custom Gradient Descent model over the library implementation was motivated by the similarity in results and the acceptable error rate (around 0.40). This decision not only highlights the viability of their custom approach but also underscores the significance of understanding the core algorithms and implementing them from scratch.
+
+The insights gained from this project have practical implications, especially in scenarios where one needs to tailor the optimization process to specific requirements or constraints. Furthermore, it emphasizes the importance of rigorous experimentation and fine-tuning to achieve optimal results when using Gradient Descent.
+
+In summary, the success of the custom Gradient Descent model in predicting wine quality validates its effectiveness in tackling real-world regression problems. This project serves as a testament to the power of understanding and implementing machine learning algorithms from the ground up, ultimately providing a strong foundation for future data science endeavors. -->
+<!-- ## 3. Conclusion
+
+In this project, the team implemented Linear Regression using Gradient Descent on the Wine Quality dataset from the UCI Machine Learning Repository to predict wine quality based on input variables.
+
+### Custom Gradient Descent (From Scratch)
+
+- The custom Gradient Descent model showed strong performance.
+- It achieved an MSE of approximately 0.4145.
+- MAE, EAV, and R² demonstrated favorable results.
+- The model's weight coefficients and bias were effectively determined.
+
+### SGDRegressor (Library Implementation)
+
+- The team also utilized the `SGDRegressor` from a machine learning library.
+- Results, including weight coefficients and bias, were comparable to the custom model.
+- The MSE was approximately 0.4062, indicating a similar level of performance.
+- MAE, EAV, and R² showed consistent results. -->
+
+### Summary
+
+The project highlights the success of custom Gradient Descent in solving regression problems and emphasizes the importance of algorithm understanding and fine-tuning. The findings provide a strong foundation for future data science endeavors.
