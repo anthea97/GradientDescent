@@ -13,8 +13,8 @@ data = pd.read_csv("https://github.com/anthea97/GradientDescent/raw/main/winequa
 * Null and redundant values were removed.
 * Histograms were plotted for all the variables
 ![[Pasted image 20230915152816.png]]
-* Plot of quality vs predictors:
-  ![[Pasted image 20230915154059.png]]
+* Plot of quality vs predictors with strong correlation:
+  ![[Pasted image 20230915194502.png]]
   
 * Correlation matrix was analyzed and variables with weak correlation - residual sugar, free sulphur dioxide and pH -  to the output variable (quality) were excluded.
 
@@ -72,3 +72,5 @@ MSE was plotted for a range of learning rates between 0.01 and 0.5.
 ![[Pasted image 20230914155609.png]]
 We observe that the MSE stabilizes at learning rate = 0.1. This is why we chose the final learning rate as 0.1.
 
+## 2. Linear Regression Using ML Library
+---
