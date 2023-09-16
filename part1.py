@@ -13,7 +13,6 @@ y= data['quality']
 X = data.drop(['quality',"free sulfur dioxide",'pH','residual sugar'],axis = 1)
 sc=StandardScaler()
 X=sc.fit_transform(X)
-print(X)
 X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size = 0.2, random_state=5)
 
 
@@ -71,6 +70,7 @@ def gradientDescent(x,y,iterations, learning_rate,threshold = 0.001):
     print(x)
     w = [0]*len(x[0])
     b = 0 
+    print(threshold)
     for _ in range(iterations):
         y_pred = predict(x,w,b)
         err = error(y,y_pred)
@@ -83,6 +83,7 @@ def gradientDescent(x,y,iterations, learning_rate,threshold = 0.001):
     return w,b
     
 # Uncomment before submitting
-# w,b = gradientDescent(X_train,Y_train,10000,0.1)
-# y_pred = predict(X_test,w,b)
-# print(mean_squared_error(Y_test,y_pred))
+w,b = gradientDescent(X_train,Y_train,50,0.1)
+y_pred = predict(X_test,w,b)
+print(mean_squared_error(Y_test,y_pred))
+print(w,b)
