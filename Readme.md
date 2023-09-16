@@ -89,6 +89,7 @@ SGDRegressor has been used as the linear model prediction of the wine quality da
 * MAE: 0.49266536997221777
 * EAV: 0.3756365448264052
 * R^2: 0.3740599690412909
+
 ![ActualVsPredicted_SGD](https://github.com/anthea97/GradientDescent/blob/main/AVP_SGD.png?raw=true)
 
 ## 3. Conclusion
