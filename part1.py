@@ -45,8 +45,10 @@ Part 1 - Custom Gradient Descent
 
 #Custom Gradient Descent Class
 class customGD:
-    def __init__(self, threshold):
+    def __init__(self, threshold,max_iterations,learning_rate):
         self.threshold = threshold
+        self.max_iterations = max_iterations
+        self.learning_rate = learning_rate
 
     def djdw(self,x,y,y_pred):
         res = 0
@@ -78,25 +80,28 @@ class customGD:
             res+=(y_pred[i]-y[i])**2
         return res/len(y)
 
-    def gradientDescent(self, x,y,iterations, learning_rate):
+    def gradientDescent(self, x,y):
         y = y.to_numpy(dtype="float32")
         print(x)
         w = [0]*len(x[0])
         b = 0
-        for _ in range(iterations):
+        for _ in range(self.max_iterations):
             y_pred = self.predict(x,w,b)
-            err = self.error(y,y_pred)
-            if np.all(np.abs(learning_rate*self.djdw(x,y,y_pred)) <= self.threshold):
+            # err = self.error(y,y_pred)
+            # if the value of difference is less than the threshold the algo stops.
+            if np.all(np.abs(self.learning_rate*self.djdw(x,y,y_pred)) <= self.threshold):
                 break
-            if np.all(np.abs(learning_rate*self.djdb(y,y_pred)) <= self.threshold):
+            if np.all(np.abs(self.learning_rate*self.djdb(y,y_pred)) <= self.threshold):
                 break
-            w = w - learning_rate*self.djdw(x,y,y_pred)
-            b = b - learning_rate*self.djdb(y,y_pred)
+            w = w - self.learning_rate*self.djdw(x,y,y_pred)
+            b = b - self.learning_rate*self.djdb(y,y_pred)
         return w,b
 
-gd = customGD(0.001)
-
-w,b = gd.gradientDescent(X_train,Y_train,50,0.1)
+threshold = 0.001
+max_iterations = 50
+learning_rate = 0.1
+gd = customGD(threshold,max_iterations,learning_rate)
+w,b = gd.gradientDescent(X_train,Y_train)
 print("weights = ",w)
 print("bias = ",b)
 

@@ -1,11 +1,11 @@
-# Linear Regression Using Gradient Descent
-
+# Linear Regression Using Gradient Descent (Assignment 1)
+#### By Anthea Abreo(AXA210122) and Samyak Rokade(SJR220000)
 #### Dataset:
 Wine Quality:
 https://archive.ics.uci.edu/dataset/186/wine+quality
 
 ## Data Preprocessing
----
+
 ```python
 data = pd.read_csv("https://github.com/anthea97/GradientDescent/raw/main/winequality-red.csv",delimiter=";")
 ```
@@ -48,7 +48,8 @@ Error log for learning rate = 0.1 with increasing number of iterations:
 **Mean Square Error (MSE) vs Number of Iterations:**
 
 We observe that the MSE decreases as the number of iterations increases. The minimum number of iterations to convergence is around 30. The same can be observe from the log table, as the values of MSE stabilize after number of iterations cross 20.
-
+ 
+![](https://github.com/anthea97/GradientDescent/blob/main/Pasted%20image%2020230914151928.png?raw=true)
 
 **Mean Square Error (MSE) vs Learning Rate:**
 ```python
@@ -69,26 +70,34 @@ def mseVsLR(X_train, Y_train, X_test, Y_test, y_pred):
 MSE was plotted for a range of learning rates between 0.01 and 0.5. 
 ![](https://github.com/anthea97/GradientDescent/blob/main/Pasted%20image%2020230914155609.png?raw=true)
 We observe that the MSE stabilizes at learning rate = 0.1. This is why we chose the final learning rate as 0.1.
+
+
 **Results**:
 * Weights - [0.09190231,-0.18631047, 0.00988079, -0.08262019, -0.06727607, -0.05484714, 0.14757514, 0.26096736]
 * Bias - 5.553971075354176
 * MSE: 0.41457022142942657
 * MAE: 0.48552026122069414
 * EAV: 0.3797965377406818
-* R^2: 0.36119192424387503
+* R²: 0.36119192424387503
 
 ![ActualVsPredicted_CGD](https://github.com/anthea97/GradientDescent/blob/main/AVP_CGD.png?raw=true)
+
+### Question:
+Q. Are you satisfied that you have found the best
+solution? Explain.
+
+Ans: No, the model that we have built is not the best solution for the given dataset. There can be some parameters that can be modified like the learning rate, number of iterations etc., that will further decrease the error, but the current value of errors are permissible.
 
 ## 2. Linear Regression Using ML Library
 SGDRegressor has been used as the linear model prediction of the wine quality dataset. By hit-and-trail, an observation was made that the SGDRegressor requires the data to be normalized in order to perform well. The coefficients of the SGDRegressor are as follows:
 
 **Results**:
 * Weights - [ 0.08640624,  -0.20771388, -0.01689627, -0.07121951, -0.0534198,  -0.03072766, 0.15382052,  0.26234732]
-* Bias - 5.63082585
+* Bias: 5.63082585
 * MSE: 0.40621918708360366
 * MAE: 0.49266536997221777
 * EAV: 0.3756365448264052
-* R^2: 0.3740599690412909
+* R²: 0.3740599690412909
 
 ![ActualVsPredicted_SGD](https://github.com/anthea97/GradientDescent/blob/main/AVP_SGD.png?raw=true)
 
