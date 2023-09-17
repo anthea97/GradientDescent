@@ -73,8 +73,8 @@ We observe that the MSE stabilizes at learning rate = 0.1. This is why we chose 
 
 
 **Results**:
-* Weights - [0.09190231,-0.18631047, 0.00988079, -0.08262019, -0.06727607, -0.05484714, 0.14757514, 0.26096736]
-* Bias - 5.553971075354176
+* Weights: [0.09190231,-0.18631047, 0.00988079, -0.08262019, -0.06727607, -0.05484714, 0.14757514, 0.26096736]
+* Bias: 5.553971075354176
 * MSE: 0.41457022142942657
 * MAE: 0.48552026122069414
 * EAV: 0.3797965377406818
@@ -92,7 +92,7 @@ Ans: No, the model that we have built is not the best solution for the given dat
 SGDRegressor has been used as the linear model prediction of the wine quality dataset. By hit-and-trail, an observation was made that the SGDRegressor requires the data to be normalized in order to perform well. The coefficients of the SGDRegressor are as follows:
 
 **Results**:
-* Weights - [ 0.08640624,  -0.20771388, -0.01689627, -0.07121951, -0.0534198,  -0.03072766, 0.15382052,  0.26234732]
+* Weights: [ 0.08640624,  -0.20771388, -0.01689627, -0.07121951, -0.0534198,  -0.03072766, 0.15382052,  0.26234732]
 * Bias: 5.63082585
 * MSE: 0.40621918708360366
 * MAE: 0.49266536997221777
