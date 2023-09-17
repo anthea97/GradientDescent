@@ -2,11 +2,11 @@ RUNNING LOCALLY:
 
 1. Ensure to have python installed on your pc.
 2. Make sure the following libraries are installed:
-   pandas
-   numpy
-   sklearn
-   seaborn
-   matplotlib
+   pip install pandas
+   pip install numpy
+   pip install -U scikit-learn
+   pip install seaborn.
+   pip install matplotlib
 3. Run the file (part1.py and part2.py)
 
 ON GOOGLE COLAB:
